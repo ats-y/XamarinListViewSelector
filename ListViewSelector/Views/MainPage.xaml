@@ -1,17 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    x:Class="ListViewSelector.Views.MainPage"
-    Title="ListView Selector">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:selector="clr-namespace:ListViewSelector.Selector"
+             mc:Ignorable="d"
+             x:Class="ListViewSelector.Views.MainPage"
+             Title="ListView Selector">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- 大分類 -->
+            <DataTemplate x:Key="TmpKeyOfCategory">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="大分類：" />
+                        <Label Text="{Binding RowTitle.Value}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+            <!-- 小分類 -->
+            <DataTemplate x:Key="TmpKeyOfSubCategory">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="小分類：" />
+                        <Label Text="{Binding RowTitle.Value}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+            <!-- 社員表示用テンプレート -->
+            <DataTemplate x:Key="TmpKeyOfEmployee">
+                <TextCell Text="Employee" />
+            </DataTemplate>
+
+            <!--
+            テンプレートセレクタ。
+            Keyで指定した生で使える。
+            -->
+            <selector:EmployeeListSelector x:Key="KeyOfSelector"
+                                           CategoryTemplate="{StaticResource TmpKeyOfCategory}"
+                                           SubCategoryTemplate="{StaticResource TmpKeyOfSubCategory}"
+                                           EmployeeTemplate="{StaticResource TmpKeyOfEmployee}" />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <StackLayout>
         <!-- Place new controls here -->
-        <Label
-            Text="Welcome to Xamarin.Forms!"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" />
+
+        <ListView HasUnevenRows="True"
+                  ItemTapped="OnItemTapped"
+                  ItemsSource="{Binding Employees}"
+                  ItemTemplate="{StaticResource KeyOfSelector}" />
+
     </StackLayout>
+
 </ContentPage>
