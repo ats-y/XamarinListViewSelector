@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 社員表示レイアウト -->
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewSelector.Views.EmployeeView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical"
+                     Padding="40,10,0,10">
+            <Label Text="{Binding KanjiName.Value}" />
+            <Label Text="{Binding Entering.Value, StringFormat='{0:yyyy/MM/dd}'}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:ListViewSelector.Views"
              xmlns:selector="clr-namespace:ListViewSelector.Selector"
              mc:Ignorable="d"
              x:Class="ListViewSelector.Views.MainPage"
@@ -38,11 +39,7 @@
             <!-- 社員表示用テンプレート -->
             <DataTemplate x:Key="TmpKeyOfEmployee">
                 <ViewCell>
-                    <StackLayout Orientation="Vertical"
-                                 Padding="20,10,0,10">
-                        <Label Text="{Binding KanjiName.Value}" />
-                        <Label Text="{Binding Entering.Value, StringFormat='{0:yyyy/MM/dd}'}" />
-                    </StackLayout>
+                    <views:EmployeeView/>
                 </ViewCell>
             </DataTemplate>
 
