@@ -8,12 +8,15 @@ namespace ListViewSelector.Models
     /// </summary>
     public class EmployeeCategory : IEmployeeRow
     {
-        public string CategoryName { get; set; }
+        /// <summary>
+        /// 分類名
+        /// </summary>
+        public ReactiveProperty<string> CategoryName { get; set; }
 
         public EmployeeCategory()
         {
         }
 
-        public string RowTitle => CategoryName;
+
     }
 }

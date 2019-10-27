@@ -14,9 +14,11 @@
             <!-- 大分類 -->
             <DataTemplate x:Key="TmpKeyOfCategory">
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="10,20,0,20"
+                                 BackgroundColor="#58726d">
                         <Label Text="大分類：" />
-                        <Label Text="{Binding RowTitle.Value}" />
+                        <Label Text="{Binding CategoryName.Value}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
@@ -24,16 +26,24 @@
             <!-- 小分類 -->
             <DataTemplate x:Key="TmpKeyOfSubCategory">
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="10,10,0,10"
+                                 BackgroundColor="#96ada9">
                         <Label Text="小分類：" />
-                        <Label Text="{Binding RowTitle.Value}" />
+                        <Label Text="{Binding SubCategoryName.Value}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
 
             <!-- 社員表示用テンプレート -->
             <DataTemplate x:Key="TmpKeyOfEmployee">
-                <TextCell Text="Employee" />
+                <ViewCell>
+                    <StackLayout Orientation="Vertical"
+                                 Padding="20,10,0,10">
+                        <Label Text="{Binding KanjiName.Value}" />
+                        <Label Text="{Binding Entering.Value, StringFormat='{0:yyyy/MM/dd}'}" />
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
 
             <!--

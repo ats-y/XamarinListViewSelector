@@ -14,16 +14,37 @@ namespace ListViewSelector.ViewModels
             {
                 new EmployeeCategory
                 {
-                    CategoryName = "大分類①"
+                    CategoryName = new ReactiveProperty<string>("第1システム部"),
                 },
                 new EmployeeSubCategory
                 {
-                    SubCategoryName = "小分類①"
+                    SubCategoryName = new ReactiveProperty<string>("Aチーム"),
                 },
                 new Employee
                 {
-                    KanjiName = "社員①"
+                    KanjiName = new ReactiveProperty<string>("社員 太郎"),
+                    Entering = new ReactiveProperty<DateTime>(new DateTime(1999,4,1)),
                 },
+                new Employee
+                {
+                    KanjiName = new ReactiveProperty<string>("社員 二郎"),
+                    Entering = new ReactiveProperty<DateTime>(new DateTime(2000,4,1)),
+                },
+                new Employee
+                {
+                    KanjiName = new ReactiveProperty<string>("社員 三郎"),
+                    Entering = new ReactiveProperty<DateTime>(new DateTime(2000,4,1)),
+                },
+                new EmployeeSubCategory
+                {
+                    SubCategoryName = new ReactiveProperty<string>("Bチーム"),
+                },
+                new Employee
+                {
+                    KanjiName = new ReactiveProperty<string>("社員 四郎"),
+                    Entering = new ReactiveProperty<DateTime>(new DateTime(2000,4,1)),
+                },
+
             };
         }
     }
