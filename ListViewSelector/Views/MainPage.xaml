@@ -38,9 +38,7 @@
 
             <!-- 社員表示用テンプレート -->
             <DataTemplate x:Key="TmpKeyOfEmployee">
-                <ViewCell>
-                    <views:EmployeeView/>
-                </ViewCell>
+                <views:EmployeeView/>
             </DataTemplate>
 
             <!--
