@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using ListViewSelector.Models;
 using Xamarin.Forms;
 
 namespace ListViewSelector.Views
@@ -10,7 +11,6 @@ namespace ListViewSelector.Views
         public EmployeeView()
         {
             InitializeComponent();
-            DetailArea.IsVisible = false;
         }
 
         /// <summary>
@@ -22,8 +22,13 @@ namespace ListViewSelector.Views
         {
             // 詳細エリアの表示・非表示を切り替える
             Debug.WriteLine("OnEmployeeTapped");
-            DetailArea.IsVisible = !DetailArea.IsVisible;
-            ForceUpdateSize();
+
+            Employee vm = BindingContext as Employee;
+            if( vm != null)
+            {
+                //bool a = vm.IsExpanded.Value;
+                //vm.IsExpanded.Value = a ? false : true;
+            }
         }
     }
 }

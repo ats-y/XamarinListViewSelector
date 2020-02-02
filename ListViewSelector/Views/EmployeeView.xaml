@@ -1,22 +1,79 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 社員表示レイアウト -->
-<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
-          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-          x:Class="ListViewSelector.Views.EmployeeView">
+<ViewCell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:actions="clr-namespace:ListViewSelector.TriggerActions"
+    x:Class="ListViewSelector.Views.EmployeeView"
+    x:Name="Me">
     <ContentView>
+
+        <ContentView.Resources>
+            <ResourceDictionary>
+                <Style
+                    TargetType="Label"
+                    x:Key="ExpandableLabel">
+                    <Style.Triggers>
+                        <DataTrigger
+                            TargetType="Label"
+                            Binding="{Binding IsExpanded}"
+                            Value="True">
+                            <DataTrigger.EnterActions>
+                                <actions:ForceUpdateSizeTriggerAction
+                                    HeighRequest="120" />
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <actions:ForceUpdateSizeTriggerAction
+                                    HeighRequest="0" />
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ResourceDictionary>
+        </ContentView.Resources>
+
         <ContentView.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnEmployeeTapped" />
+            <TapGestureRecognizer
+                Tapped="OnEmployeeTapped" />
         </ContentView.GestureRecognizers>
 
         <ContentView.Content>
-            <StackLayout Orientation="Vertical"
-                         Padding="40,10,0,10">
-                <Label Text="{Binding KanjiName.Value}" />
-                <Label Text="{Binding Entering.Value, StringFormat='{0:yyyy/MM/dd}'}" />
-                <Label Text="詳細"
-                       x:Name="DetailArea" />
+            <StackLayout
+                Orientation="Vertical"
+                Padding="40,10,0,10">
+                <Label
+                    Text="{Binding KanjiName.Value}" />
+                <Label
+                    Text="{Binding Entering.Value, StringFormat='{0:yyyy/MM/dd}'}" />
+
+                <Label
+                    Text="{Binding Text}" />
+                <Label
+                    Style="{StaticResource ExpandableLabel}"
+                    BackgroundColor="White"
+                    Text="{Binding ExpandedContent}"
+                    HeightRequest="0" />
+
+                <Button
+                    Text="Expand"
+                    Command="{Binding ToggleItemCommand}"
+                    CommandParameter="{Binding }">
+                    <Button.Triggers>
+                        <DataTrigger
+                            TargetType="Button"
+                            Binding="{Binding IsExpanded}"
+                            Value="True">
+                            <Setter
+                                Property="Text"
+                                Value="Collapse" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
             </StackLayout>
         </ContentView.Content>
+
     </ContentView>
+
 </ViewCell>

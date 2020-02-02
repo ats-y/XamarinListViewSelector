@@ -1,54 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:ListViewSelector.Views"
-             xmlns:selector="clr-namespace:ListViewSelector.Selector"
-             mc:Ignorable="d"
-             x:Class="ListViewSelector.Views.MainPage"
-             Title="ListView Selector">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:ListViewSelector.Views"
+    xmlns:selector="clr-namespace:ListViewSelector.Selector"
+    mc:Ignorable="d"
+    x:Class="ListViewSelector.Views.MainPage"
+    Title="ListView Selector">
 
     <ContentPage.Resources>
         <ResourceDictionary>
 
             <!-- 大分類 -->
-            <DataTemplate x:Key="TmpKeyOfCategory">
+            <DataTemplate
+                x:Key="TmpKeyOfCategory">
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal"
-                                 Padding="10,20,0,20"
-                                 BackgroundColor="#58726d">
-                        <Label Text="大分類：" />
-                        <Label Text="{Binding CategoryName.Value}" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Padding="10,20,0,20"
+                        BackgroundColor="#58726d">
+                        <Label
+                            Text="大分類：" />
+                        <Label
+                            Text="{Binding CategoryName.Value}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
 
             <!-- 小分類 -->
-            <DataTemplate x:Key="TmpKeyOfSubCategory">
+            <DataTemplate
+                x:Key="TmpKeyOfSubCategory">
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal"
-                                 Padding="10,10,0,10"
-                                 BackgroundColor="#96ada9">
-                        <Label Text="小分類：" />
-                        <Label Text="{Binding SubCategoryName.Value}" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Padding="10,10,0,10"
+                        BackgroundColor="#96ada9">
+                        <Label
+                            Text="小分類：" />
+                        <Label
+                            Text="{Binding SubCategoryName.Value}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
 
             <!-- 社員表示用テンプレート -->
-            <DataTemplate x:Key="TmpKeyOfEmployee">
-                <views:EmployeeView/>
+            <DataTemplate
+                x:Key="TmpKeyOfEmployee">
+                <views:EmployeeView />
             </DataTemplate>
 
             <!--
             テンプレートセレクタ。
             Keyで指定した生で使える。
             -->
-            <selector:EmployeeListSelector x:Key="KeyOfSelector"
-                                           CategoryTemplate="{StaticResource TmpKeyOfCategory}"
-                                           SubCategoryTemplate="{StaticResource TmpKeyOfSubCategory}"
-                                           EmployeeTemplate="{StaticResource TmpKeyOfEmployee}" />
+            <selector:EmployeeListSelector
+                x:Key="KeyOfSelector"
+                CategoryTemplate="{StaticResource TmpKeyOfCategory}"
+                SubCategoryTemplate="{StaticResource TmpKeyOfSubCategory}"
+                EmployeeTemplate="{StaticResource TmpKeyOfEmployee}" />
 
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -56,10 +67,13 @@
     <StackLayout>
         <!-- Place new controls here -->
 
-        <ListView HasUnevenRows="True"
-                  ItemTapped="OnItemTapped"
-                  ItemsSource="{Binding Employees}"
-                  ItemTemplate="{StaticResource KeyOfSelector}" />
+
+        <ListView
+            HasUnevenRows="True"
+            ItemTapped="OnItemTapped"
+            ItemsSource="{Binding Employees}"
+            ItemTemplate="{StaticResource KeyOfSelector}">
+        </ListView>
 
     </StackLayout>
 
