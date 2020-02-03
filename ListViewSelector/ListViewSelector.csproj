@@ -17,5 +17,11 @@
     <Folder Include="Selector\" />
     <Folder Include="Models\" />
     <Folder Include="TriggerActions\" />
+    <Folder Include="DataTemplate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\EmployeeViewCell.xaml.cs">
+      <DependentUpon>EmployeeViewCell.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

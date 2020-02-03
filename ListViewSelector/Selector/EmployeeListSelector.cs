@@ -1,5 +1,6 @@
 ﻿using System;
 using ListViewSelector.Models;
+using ListViewSelector.Views;
 using Xamarin.Forms;
 
 namespace ListViewSelector.Selector

@@ -16,39 +16,38 @@
             <!-- 大分類 -->
             <DataTemplate
                 x:Key="TmpKeyOfCategory">
-                <ViewCell>
-                    <StackLayout
-                        Orientation="Horizontal"
-                        Padding="10,20,0,20"
-                        BackgroundColor="#58726d">
-                        <Label
-                            Text="大分類：" />
-                        <Label
-                            Text="{Binding CategoryName.Value}" />
-                    </StackLayout>
-                </ViewCell>
+                <!--<x:Arguments>
+                    <Type
+                        TypeName="views:CategoryViewCell" />
+                </x:Arguments>-->
+
+                <views:CategoryViewCell />
+
             </DataTemplate>
 
             <!-- 小分類 -->
             <DataTemplate
                 x:Key="TmpKeyOfSubCategory">
-                <ViewCell>
-                    <StackLayout
-                        Orientation="Horizontal"
-                        Padding="10,10,0,10"
-                        BackgroundColor="#96ada9">
-                        <Label
-                            Text="小分類：" />
-                        <Label
-                            Text="{Binding SubCategoryName.Value}" />
-                    </StackLayout>
-                </ViewCell>
+                <!--<x:Arguments>
+                    <Type
+                        TypeName="views:SubCategoryViewCell" />
+                </x:Arguments>-->
+
+                <views:SubCategoryViewCell />
+
             </DataTemplate>
 
             <!-- 社員表示用テンプレート -->
             <DataTemplate
                 x:Key="TmpKeyOfEmployee">
-                <views:EmployeeView />
+
+                <!--<x:Arguments>
+                    <Type
+                        TypeName="views:EmployeeView" />
+                </x:Arguments>-->
+
+                <views:EmployeeViewCell />
+
             </DataTemplate>
 
             <!--
@@ -66,8 +65,6 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-
-
         <ListView
             HasUnevenRows="True"
             ItemTapped="OnItemTapped"

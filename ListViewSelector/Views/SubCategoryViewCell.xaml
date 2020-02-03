@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ListViewSelector.Views.SubCategoryViewCell">
+    <StackLayout
+        Orientation="Horizontal"
+        Padding="10,10,0,10"
+        BackgroundColor="#96ada9">
+        <Label
+            Text="小分類：" />
+        <Label
+            Text="{Binding SubCategoryName.Value}" />
+    </StackLayout>
+</ViewCell>

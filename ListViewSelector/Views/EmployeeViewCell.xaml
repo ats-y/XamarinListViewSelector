@@ -5,7 +5,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:actions="clr-namespace:ListViewSelector.TriggerActions"
-    x:Class="ListViewSelector.Views.EmployeeView"
+    x:Class="ListViewSelector.Views.EmployeeViewCell"
     x:Name="Me">
     <ContentView>
 

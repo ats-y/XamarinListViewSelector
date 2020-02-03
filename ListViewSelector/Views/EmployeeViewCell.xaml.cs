@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace ListViewSelector.Views
 {
-    public partial class EmployeeView : ViewCell
+    public partial class EmployeeViewCell : ViewCell
     {
-        public EmployeeView()
+        public EmployeeViewCell()
         {
             InitializeComponent();
         }
