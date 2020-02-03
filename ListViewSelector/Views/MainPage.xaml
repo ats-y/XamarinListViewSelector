@@ -16,38 +16,31 @@
             <!-- 大分類 -->
             <DataTemplate
                 x:Key="TmpKeyOfCategory">
-                <!--<x:Arguments>
+                <x:Arguments>
                     <Type
                         TypeName="views:CategoryViewCell" />
-                </x:Arguments>-->
-
+                </x:Arguments>
                 <views:CategoryViewCell />
-
             </DataTemplate>
 
             <!-- 小分類 -->
             <DataTemplate
                 x:Key="TmpKeyOfSubCategory">
-                <!--<x:Arguments>
+                <x:Arguments>
                     <Type
                         TypeName="views:SubCategoryViewCell" />
-                </x:Arguments>-->
-
+                </x:Arguments>
                 <views:SubCategoryViewCell />
-
             </DataTemplate>
 
             <!-- 社員表示用テンプレート -->
             <DataTemplate
                 x:Key="TmpKeyOfEmployee">
-
-                <!--<x:Arguments>
+                <x:Arguments>
                     <Type
-                        TypeName="views:EmployeeView" />
-                </x:Arguments>-->
-
+                        TypeName="views:EmployeeViewCell" />
+                </x:Arguments>
                 <views:EmployeeViewCell />
-
             </DataTemplate>
 
             <!--
@@ -67,11 +60,10 @@
         <!-- Place new controls here -->
         <ListView
             HasUnevenRows="True"
+            CachingStrategy="RecycleElementAndDataTemplate"
             ItemTapped="OnItemTapped"
             ItemsSource="{Binding Employees}"
             ItemTemplate="{StaticResource KeyOfSelector}">
         </ListView>
-
     </StackLayout>
-
 </ContentPage>
