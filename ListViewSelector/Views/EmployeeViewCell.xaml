@@ -33,11 +33,6 @@
             </ResourceDictionary>
         </ContentView.Resources>
 
-        <ContentView.GestureRecognizers>
-            <TapGestureRecognizer
-                Tapped="OnEmployeeTapped" />
-        </ContentView.GestureRecognizers>
-
         <ContentView.Content>
             <StackLayout
                 Orientation="Vertical"

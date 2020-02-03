@@ -20,7 +20,7 @@
                     <Type
                         TypeName="views:CategoryViewCell" />
                 </x:Arguments>
-                <views:CategoryViewCell />
+                <!--<views:CategoryViewCell />-->
             </DataTemplate>
 
             <!-- 小分類 -->
@@ -30,7 +30,7 @@
                     <Type
                         TypeName="views:SubCategoryViewCell" />
                 </x:Arguments>
-                <views:SubCategoryViewCell />
+                <!--<views:SubCategoryViewCell />-->
             </DataTemplate>
 
             <!-- 社員表示用テンプレート -->
@@ -40,7 +40,7 @@
                     <Type
                         TypeName="views:EmployeeViewCell" />
                 </x:Arguments>
-                <views:EmployeeViewCell />
+                <!--<views:EmployeeViewCell />-->
             </DataTemplate>
 
             <!--
